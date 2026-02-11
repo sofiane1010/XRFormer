@@ -1,0 +1,49 @@
+# --- Python Essentials ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Build & Distribution ---
+# Generated when you run 'pip install -e .'
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Environments ---
+.env
+.venv
+env/
+venv/
+ENV/
+
+# --- IDE & System ---
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# --- Project Specifics ---
+
+# 1. Datasets
+# Excludes all data files
+data/
+
+#  Model Checkpoints
+models/downstream
+
+logs/
+.ipynb_checkpoints/
+wandb/
+

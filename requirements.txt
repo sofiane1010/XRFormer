@@ -1,0 +1,13 @@
+matplotlib
+scipy>=1.12.0
+seaborn
+scikit-image>=0.22.0
+ipykernel
+
+torch
+torchvision
+torcheval
+einops
+tqdm
+
+-e .

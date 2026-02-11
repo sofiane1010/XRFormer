@@ -1,0 +1,22 @@
+name: xrformer
+channels:
+  - pytorch    
+  - nvidia     
+  - conda-forge
+  - defaults         
+dependencies:
+  - python=3.9.18
+  - pip
+  - matplotlib
+  - scipy>=1.12.0
+  - seaborn
+  - scikit-image>=0.22.0
+  - ipykernel
+  
+  - pip:
+    - torch
+    - torchvision
+    - torcheval
+    - einops
+    - tqdm
+    - -e .
