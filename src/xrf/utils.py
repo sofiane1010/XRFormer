@@ -3,8 +3,6 @@ import torch.nn.functional as F
 import numpy as np
 from torcheval.metrics.functional import binary_f1_score, multilabel_accuracy
 
-from xrf.data_utils import load_pcsv5_spectra
-
 
 def _downstream_loss(pred, target, downstream_task):
     if downstream_task == "identification":

@@ -5,13 +5,11 @@ import argparse
 from xrf import ViT, SpectraDataset, pretrain
 
 parser = argparse.ArgumentParser(description="pretrain XRFormer with config")
-parser.add_argument("--depth", type=int, default=6)
+parser.add_argument("--size", type=str, default="B", help="Model size: 'B' / 'L'")
 parser.add_argument("--mode", type=str, default="ViT")  # 'ViT' or 'CAF'
 parser.add_argument("--tokenizer_mode", type=str, default="multiscale_conv")
-parser.add_argument("--dim", type=int, default=128)
 parser.add_argument("--num_patches", type=int, default=128)
 parser.add_argument("--peak_prediction", action="store_true")
-parser.add_argument("--n_heads", type=int, default=8)
 parser.add_argument("--seed", type=int, default=0)
 parser.add_argument("--learning_rate", type=float, default=1e-4)
 parser.add_argument("--batch_size", type=int, default=128)
@@ -31,6 +29,15 @@ torch.backends.cudnn.allow_tf32 = False
 
 DEVICE = torch.device(args.device)
 
+# ----------------- print model information ---------------------------
+
+pretrining_str = "(MSM)" if not args.peak_prediction else "(MSM+PPP)"
+print("######################################################")
+print("######################################################")
+print(f"Model: XRFormer-{args.size}")
+print(f"Pretraining task: {pretrining_str}")
+print("######################################################")
+print("######################################################")
 
 # ----------------- Dataset -------------------------
 
@@ -57,15 +64,28 @@ test_loader = DataLoader(
 val_loader = DataLoader(
     val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=4
 )
+
 # ----------------- Model ---------------------------
+
+if args.size == "B":
+    DEPTH = 6
+    DIM = 128
+    N_HEADS = 8
+elif args.size == "L":
+    DEPTH = 8
+    DIM = 256
+    N_HEADS = 16
+else:
+    raise ValueError("Invalid model size. Choose from 'B' or 'L'.")
+
 model = ViT(
     spectral_bands=dataset.spectra.shape[-1],
     num_patches=args.num_patches,
-    dim=args.dim,
-    heads=args.n_heads,
-    dim_head=args.dim // args.n_heads,
-    depth=args.depth,
-    mlp_dim=args.dim * 4,
+    dim=DIM,
+    heads=N_HEADS,
+    dim_head=DIM // N_HEADS,
+    depth=DEPTH,
+    mlp_dim=DIM * 4,
     dropout=0.1,
     emb_dropout=0.1,
     ratio=0.15,
