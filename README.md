@@ -177,7 +177,7 @@ python scripts/train_downstream.py --model SF_no-CAF --downstream_task unmixing
 | **Identification** | **F1-Score** | 90.48% | 89.44% | **93.85%** (w/ MSM) |
 | | **Accuracy (AA)** | 64.80% | 59.85% | **75.69%** (w/ MSM) |
 | **Unmixing** | **Abundance RMSE** | 0.0533 | 0.0454 | **0.0440** (w/ MSM+PPP) |
-| | **SAM (rad)** | 0.1662 | 3.1561 | **0.1546** (w/ MSM+PPP) |
+| | **SAM (rad)** | 0.1662 | 0.1561 | **0.1546** (w/ MSM+PPP) |
 
 See Tables 2 & 4 in the paper for full comparisons.
 
