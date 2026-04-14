@@ -112,12 +112,18 @@ def read_csv_spectrum(file_path: str, return_energy: bool = False):
                 break
 
     # load spectrum
+    
+    
+    # This works on NumPy 1.26, NumPy 2.0, and everything in between
+    safe_float = lambda s: float(s.decode("utf-8").strip('"')) if hasattr(s, "decode") else float(s.strip('"'))
+
     spectrum = np.loadtxt(
-        file_path,
-        delimiter=",",
-        skiprows=spectrum_start_index,
-        converters={1: lambda s: float(s.decode("utf-8").strip('"'))},
-        dtype=np.float32,
+	file_path,
+	delimiter=",",
+	skiprows=spectrum_start_index,
+	converters={1: safe_float},
+	dtype=np.float32,
+	usecols=(0, 1)
     )[:, 1]
     energy = np.arange(len(spectrum), dtype=np.float32) * evpc
     if return_energy:

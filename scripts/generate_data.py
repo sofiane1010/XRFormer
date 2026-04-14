@@ -1,6 +1,7 @@
 ###
 import numpy as np
 import argparse
+import os
 
 from xrf.data_utils import (
     load_infraart_spectra,
@@ -14,6 +15,8 @@ parser.add_argument("--size", type=int, default=2_000_000)  # 'infraart' or 'PCS
 parser.add_argument("--seed", type=int, default=42)  # seed for reproducibility
 parser.add_argument("--photon_scale", type=int, default=1e4)  # scale for Poisson noise
 args = parser.parse_args()
+
+os.makedirs("data", exist_ok=True)
 
 ###
 

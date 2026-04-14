@@ -7,6 +7,7 @@ from torch.utils.data import random_split
 
 import numpy as np
 import argparse
+import os
 
 from xrf.models import CNNClassifier1D, XRFClassifier
 from xrf.dataset import SpectraDataset
@@ -52,6 +53,8 @@ parser.add_argument(
 parser.add_argument("--dropout", type=float, default=0.1)
 
 args = parser.parse_args()
+
+os.makedirs(f"models/downstream/{args.downstream_task}", exist_ok=True)
 
 torch.manual_seed(args.seed)
 torch.cuda.manual_seed_all(args.seed)

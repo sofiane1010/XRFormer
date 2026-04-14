@@ -42,7 +42,7 @@ We provide a unified environment file for Conda users (recommended) and a requir
 
 Using Conda :
 ```bash
-conda env create -f environment.yml
+conda env create -f environment.yml --solver=libmamba
 conda activate xrformer
 ```
 or using pip
