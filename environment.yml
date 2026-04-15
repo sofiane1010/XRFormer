@@ -12,9 +12,7 @@ dependencies:
 
   - pip:
     
-    --extra-index-url https://download.pytorch.org/whl/cu126
-    - torch==2.7.0+cu126
+    - torch==2.7.0+cu126 --extra-index-url https://download.pytorch.org/whl/cu126
     - torcheval==0.0.7
-    - argparse==1.4.0  # Fixed typo and updated version
     - einops==0.8.1
     - -e .
