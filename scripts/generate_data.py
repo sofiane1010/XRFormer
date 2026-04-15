@@ -3,6 +3,8 @@ import numpy as np
 import argparse
 import os
 
+import os
+
 from xrf.data_utils import (
     load_infraart_spectra,
     load_pcsv5_spectra,

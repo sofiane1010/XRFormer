@@ -1,13 +1,9 @@
-matplotlib
-scipy>=1.12.0
-seaborn
-scikit-image>=0.22.0
-ipykernel
-
-torch
-torchvision
-torcheval
-einops
-tqdm
-
+python==3.9.18
+pip==25.1
+scipy==1.12.0
+torch==2.7.0+cu126
+torcheval==0.0.7
+numpy==1.26.4
+argparse==1.1
+einops==0.8.1
 -e .

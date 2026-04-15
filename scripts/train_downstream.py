@@ -65,6 +65,7 @@ torch.backends.cudnn.benchmark = False
 torch.backends.cuda.matmul.allow_tf32 = False
 torch.backends.cudnn.allow_tf32 = False
 
+os.makedirs(f"models/downstream/{args.downstream_task}", exist_ok=True)
 
 # ----------------- print model information ---------------------------
 

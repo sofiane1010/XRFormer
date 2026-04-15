@@ -6,18 +6,13 @@ channels:
   - nodefaults
 dependencies:
   - python=3.9.18
-  - pip
-  - matplotlib
+  - pip=25.1
   - scipy=1.12.0
-  - seaborn
-  - scikit-image=0.22.0
-  - ipykernel
+  
   - pip:
-      - torch==2.7.0
-      - torchvision
-      - torcheval
-      - einops
-      - tqdm
-      - opencv-python
-      - scikit-learn
-      - -e .
+    - torch=2.7.0+cu126
+    - torcheval=0.0.7
+    - numpy=1.26.4
+    - argpase=1.1
+    - einops=0.8.1
+    - -e .
