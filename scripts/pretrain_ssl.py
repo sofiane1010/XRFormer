@@ -125,7 +125,7 @@ for epoch in range(args.num_epochs):
 
     print(f"Epoch {epoch+1} | Loss: {avg_train_loss:.8f}")
 
-    size = "B" if args.depth == 6 else "L" if args.depth == 8 else "H"
+    size = "B" if DEPTH == 6 else "L" if DEPTH == 8 else "H"
     task = "MSM+PPP" if args.peak_prediction else "MSM"
 
     torch.save(
