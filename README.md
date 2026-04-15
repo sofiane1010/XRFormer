@@ -38,17 +38,12 @@ cd XRFormer
 ```
 
 ### 2. Install dependencies
-We provide a unified environment file for Conda users (recommended) and a requirements file for Pip users.
+We provide a unified environment file for Conda users :
 
 Using Conda :
 ```bash
 conda env create -f environment.yml --solver=libmamba
 conda activate xrformer
-```
-or using pip
-```bash
-conda create -n myenv python=3.9.18
-pip install -r requirements.txt
 ```
 
 ### 📊 Data preparation
