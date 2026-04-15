@@ -33,8 +33,8 @@ XRFormer-Multiscale-Tokenization-for-XRF-Representation-Learning/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/sofiane1010/XRFormer-Multiscale-Tokenization-for-XRF-Representation-Learning.git
-cd XRFormer-Multiscale-Tokenization-for-XRF-Representation-Learning
+git clone https://github.com/sofiane1010/XRFormer.git
+cd XRFormer
 ```
 
 ### 2. Install dependencies
@@ -47,6 +47,7 @@ conda activate xrformer
 ```
 or using pip
 ```bash
+conda create -n myenv python=3.9.18
 pip install -r requirements.txt
 ```
 
