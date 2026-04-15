@@ -12,7 +12,7 @@ dependencies:
 
   - pip:
     
-    - torch==2.7.0+cu126 --extra-index-url https://download.pytorch.org/whl/cu126
+    - torch==2.7.0+cu124 --extra-index-url https://download.pytorch.org/whl/cu124
     - torcheval==0.0.7
     - einops==0.8.1
     - -e .
